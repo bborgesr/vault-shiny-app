@@ -59,3 +59,5 @@ about the pool you are connecting to:
 
 ![Success](screenshots/success.png)
 
+===========
+**To relaunch the app, you will need to clear away the previous vault's storage (which in this case, uses the local file system and creates a new directory called `vault` at the same level as the app. Delete that directory. Then, exit the current server (Control + C) and start a new one just as before (with `vault server -config=api-test.hcl`).**
