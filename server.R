@@ -4,8 +4,8 @@ library(pool)
 source("api-test.R")
 
 function(input, output) {
-  values <- reactiveValues(authenticated = FALSE)
   pool <- NULL
+  values <- reactiveValues(authenticated = FALSE)
   
   # Return the UI for a modal dialog with data selection input. If 'failed' 
   # is TRUE, then display a message that the previous value was invalid.
@@ -29,6 +29,7 @@ function(input, output) {
   })
   
   createPool <- function() {
+    pool <<- NULL
     data <- content(GET('http://127.0.0.1:8200/v1/secret/credentials',
                         add_headers(`X-Vault-Token` = client_token)))$data
     user <- data$username
@@ -57,9 +58,10 @@ function(input, output) {
     
     # Check that data object exists and is data frame.
     if (createPool()) {
-      values$authenticated <<- TRUE
+      values$authenticated <- TRUE
       removeModal()
     } else {
+      values$authenticated <- FALSE
       showModal(dataModal(failed = TRUE))
     }
   })
