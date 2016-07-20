@@ -1,7 +1,7 @@
 # vault-shiny-app
 
 This is a not-so-secure app to serve as a proof of concept of how we might integrate Vault in R to secure credentials. 
-In reality, we'd need to bake this security right into the inputs, rather then after Shiny as registered these. But
+In reality, we'd need to bake this security right into the inputs, rather then after Shiny has registered these. But
 it may still to useful to get a feel as to how this may work in the future.
 
 Before you move on, you need to download and install Vault, which is pretty simple. Just follow the instructions 
@@ -32,7 +32,7 @@ devtools::install_github("rstudio/pool")
 install.packages("httr")
 ```
 
-Now, you can run the app. You shoudl see the following:
+Now, you can run the app. You should see the following:
 
 ![Initial state](screenshots/init.png)
 
